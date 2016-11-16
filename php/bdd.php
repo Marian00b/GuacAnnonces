@@ -12,6 +12,8 @@ function connexionbd() {
     
 	// chaîne de connexion pour PDO (ne pas modifier)
 	$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
+    //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
+
 
 	// connexion au serveur de bases de données
 	$bd = new PDO($dsn, $username, $password);
