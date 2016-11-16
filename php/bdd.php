@@ -66,4 +66,6 @@ function vidage_table() {
 	requete($maBd, $maRequeteVidage);
 }
 
+
+
 ?>
