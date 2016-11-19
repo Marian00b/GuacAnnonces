@@ -1,18 +1,33 @@
 .logo {
 float:left;
 }
+
 h1
 {
+    margin-top:30px; 
     text-align: left;
     color: teal;
     font-size: 55px;
 }
+
+body {
+    width: 50%;
+    margin: auto;
+}
+
 h2
 {
-    margin-top:-30px;
+    margin-top:-10px;
     color:mediumpurple;
-    font-size: medium;
+/*    font-size: medium;*/
 }
+
+/*
+h3{
+    margin-top:-30px;
+    color:lightp;
+}*/
+
 #onglets
 {
     list-style-type : none;
@@ -35,6 +50,7 @@ body {
 	margin: auto ;
 	margin-top: -40px ;
 }
+
 header {
 	padding-top: 5px ;
 	margin-top: 15px ;
@@ -49,4 +65,9 @@ article {
 	text-align: justify ;
 	background-color: white;
 	padding: 2em;
+}
+
+footer { 
+    text-align: center;
+    margin-top:40px;
 }
