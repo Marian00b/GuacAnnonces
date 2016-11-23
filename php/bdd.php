@@ -12,8 +12,8 @@
         $dbname = "Annonces";
 
         // chaîne de connexion pour PDO (ne pas modifier)
-        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
-        //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
+        //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
+        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
 
         // connexion au serveur de bases de données
@@ -124,7 +124,7 @@
                     $list_column = Array();
                     
                     // Pour un paramètre donné : (column1 like %param% OR column2 like %param% OR column3...etc)
-                    foreach (array(id, titre, description, categorie, nom_Vendeur, prix, photo, rdv_lat, rdv_lon, date_ajout) as $column){
+                    foreach (array("id", "titre", "description", "categorie", "nom_Vendeur", "prix", "photo", "rdv_lat", "rdv_lon", "date_ajout") as $column){
                         $list_column[] = " ".$column." like '%".$val."%' "; 
                     }
                    //$list_or = $join_and = join(" OR ", $list_column);
@@ -174,7 +174,7 @@
                                         'prix' => $val['prix'],
                                         'photo' => $val['photo'],
                                         'rdv_lat' => $val['rdv_lat'],
-                                        'rdv_lon' => $val['rdv_long'],
+                                        'rdv_lon' => $val['rdv_lon'],
                                         'date_ajout' => $val['date_ajout']); 
         }
 
