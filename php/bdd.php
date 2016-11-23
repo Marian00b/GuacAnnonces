@@ -92,14 +92,15 @@
             // AND ou OU ? Selon si utilisateur a rentré espace ou ; 
             $split_and = true; 
 
+            // Explode permettrait de verifier les IF 
 
-            // 3 cas : ET, OU, un seul mot 
+           //  3 cas : ET, OU, un seul mot 
             if (strpos($ret, ";") != false){
-                $array_filter = split(";",$ret);
+                $array_filter = preg_split("/;/",$ret);
             }
             else if (strpos($ret, " ") != false){
                 $split_and = false; 
-                $array_filter = split(" ",$ret);
+                $array_filter = preg_split("/\s+/",$ret);
             } 
             else {
                 $array_filter[] = $ret;
@@ -126,7 +127,8 @@
                     foreach (array(id, titre, description, categorie, nom_Vendeur, prix, photo, rdv_lat, rdv_lon, date_ajout) as $column){
                         $list_column[] = " ".$column." like '%".$val."%' "; 
                     }
-                   $list_or = $join_and = join(" OR ", $list_column);
+                   //$list_or = $join_and = join(" OR ", $list_column);
+                   $list_or = join(" OR ", $list_column);
                    $list_param[] = " ( ".$list_or." ) ";             
                 } 
                 
