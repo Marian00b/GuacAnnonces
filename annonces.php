@@ -51,7 +51,7 @@
                     echo '<div class="panel panel-info">';
                         echo '<div class="panel-heading ">';
                                 echo '<h3 class="panel-title">' .$titre. ' <span class = "label label-primary">'.$categorie.'</span></h3>';
-                                    
+                               
                          echo '</div>';                    
                          echo '<div class="panel-body">';
                             echo '<a href="#" class="pull-right"> <img class="media-object img-thumbnail" width="150" height="150" src="'.$photo.'" >';

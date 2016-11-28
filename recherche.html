@@ -16,6 +16,7 @@
         <link href="./css/style.css" rel="stylesheet" />
         <script src="js/fonctions_globales.js"></script>
         <script src="js/gestion_annonces_dyn.js"></script>
+        <script type="text/javascript" src="js/ajout.js"></script>
         
     </head>
     <body>
@@ -58,6 +59,34 @@
                   <button type="submit" class="btn btn-primary">Afficher les données</button>
             </form>
             
+            <form id="ajout-form">
+                <label>Type d'annonce :</label>
+                    <select name="categorie">
+                        <option value="immobilier">Immobilier</option>
+                        <option value="electronique">Électonique</option>
+                        <option value="vetement">Vêtement</option>
+                        <option value="bijoux">Bijoux</option>
+                        <option value="dvd_cd">DVD/CD</option>
+                    </select>
+                
+                <label>Titre :</label>
+				<input type="text" name="titre" placeholder="Titre de l'annonce" />
+                <label>Descriptif :</label>
+                <input type="text" name="description" placeholder="Descriptif de l'annonce" />
+                <label>Prix :</label>
+                <input type="text" name="prix" placeholder="" />
+                <label>Nom :</label>
+                <input type="text" name="nom_vendeur" placeholder="" />
+                <label>Photo :</label>
+                <input type="text" name="photo" placeholder="Lien URL vers la photo" />
+                <label>Rdv lattitude :</label>
+                <input type="number" name="rdv_lat" placeholder="" />
+                <label>Rdv longitude :</label>
+                <input type="number" name="rdv_lon" placeholder="" />
+                
+                <button type="submit" class="btn btn-primary">Ajouter l'annonce</button>
+                
+            </form>
         
             </br>
             
