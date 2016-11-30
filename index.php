@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     
@@ -10,8 +14,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"  crossorigin="anonymous"></script>
-
         
+
         <!-- Librairies personnelles --> 
         <link href="./css/style.css" rel="stylesheet" />
         <script src="js/fonctions_globales.js"></script>
@@ -20,19 +24,38 @@
     <body>
         
         <header >
-            <h1 > <a href="index.html"><img class="logo" src="./images/logo2.png" id="logo"/> </a> AnnonceÉtudiant </h1> <!-- 2 t à petites --> 
+            <h1 > <a href="index.html"><img class="logo" src="./images/logo2.png" id="logo"  height="100"/> </a> AnnonceÉtudiant </h1> <!-- 2 t à petites --> 
             <h2>Trouver et postez vos annonces gratuitement !</h2>
 
-            <nav id="menu">  
-                <ul id="onglets">
-                    <li> <a href="index.html"> Page d'accueil </a></li>
-                    <li> <a href="annonces.php"> Annonces </a></li>
-                    <li> <a href="recherche.html"> Recherche d'annonces </a></li>
-                </ul>
+            <nav class ="navbar navbar-default" id="menu">  
+                <div class="container-fluid">
+                    <div class="navbar-header">
+            
+                    </div>
+                    
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li  class="active"> <a href="index.php"> Accueil </a></li>
+                            <li> <a href="annonces.php"> Annonces </a></li>
+                            <li> <a href="recherche.php"> Rechercher </a></li>
+                            <li class = "dropdown"> 
+                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> Dropdown <span class="caret"></span></a>
+                            </li>
+                        </ul>
+                      <div class="collapse navbar-collapse" id="login">
+        
+                       </div>
+                    </div>
+                    
+                </div>
             </nav>
         </header>
         
         <main>  <!-- Main, norme HTML5--> 
+            
+            <div id="alertbox">
+            </div>
+            
             <section> 
                 <article>
                     <p> Tu es étudiant et tu cherches un job, un appartement ? Tu souhaites publier une annonce ? Alors tu es sur le bon site ! </p>

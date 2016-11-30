@@ -11,7 +11,7 @@ h1
 }
 
 body {
-    width: 50%;
+    width: 80%;
     margin: auto;
 }
 
@@ -45,8 +45,11 @@ h3{
     border : 1px white;
 }
 body {
+/*        width: 50%;*/
+/*
 	min-width: 1024px ;
 	max-width: 1280px ;
+*/
 	margin: auto ;
 	margin-top: -40px ;
 }

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     
@@ -21,19 +25,38 @@
     <body>
         
         <header >
-            <h1 > <a href="index.html"><img class="logo" src="./images/logo2.png" id="logo"/> </a> AnnonceÉtudiant </h1> <!-- 2 t à petites --> 
+            <h1 > <a href="index.html"><img class="logo" src="./images/logo2.png" id="logo"  height="100"/> </a> AnnonceÉtudiant </h1> <!-- 2 t à petites --> 
             <h2>Trouver et postez vos annonces gratuitement !</h2>
 
-            <nav id="menu">  
-                <ul id="onglets">
-                    <li> <a href="index.html"> Page d'accueil </a></li>
-                    <li> <a href="annonces.php"> Annonces </a></li>
-                    <li> <a href="recherche.html"> Recherche d'annonces </a></li>
-                </ul>
+            <nav class ="navbar navbar-default" id="menu">  
+                <div class="container-fluid">
+                    <div class="navbar-header">
+            
+                    </div>
+                    
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li > <a href="index.php"> Accueil </a></li>
+                            <li  class="active"> <a href="annonces.php"> Annonces </a></li>
+                            <li> <a href="recherche.php"> Rechercher </a></li>
+                            <li class = "dropdown"> 
+                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> Dropdown <span class="caret"></span></a>
+                            </li>
+                        </ul>
+                      <div class="collapse navbar-collapse" id="login">
+        
+                       </div>
+                    </div>
+                    
+                </div>
             </nav>
         </header>
         
         <main>  <!-- Main, norme HTML5--> 
+            
+            <div id="alertbox">
+            </div>
+            
             <?php
                 include 'php/bdd.php';
                 $donnees = get_messages();
@@ -63,6 +86,22 @@
                                 echo $description ;
                             echo '</div>';
                         echo '</div>';
+                        echo '<table class = "table">'; 
+                            echo '<tr>';
+                                echo '<th>Coordonnées</th>';
+                                echo '<th>Vendu par </th>';
+                                echo '<th>Ajouté le </th>';
+                            echo '</tr>';
+                            echo '<tr>';
+                                echo '<td> Latitude : '.$rdv_lat.' </br> Longitude : '.$rdv_lon.'</td>';
+                                echo '<td>'.$vendeur.'</td>';
+                                echo '<td>'.date_ajout.'</td>';
+                            echo '</tr>';
+
+
+                         echo '</table>';
+                        echo '<div style="width: 100%"><iframe width="100%" height="300" src="http://www.mapi.ie/create-google-map/map.php?width=100%&amp;height=300&amp;hl=en&amp;coord='.$rdv_lat.','.$rdv_lon.'3&amp;q=+(Lieu d\'achat)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> </iframe></div><br />';
+                    
                     echo '</div>';
                     
                 }

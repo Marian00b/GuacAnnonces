@@ -12,8 +12,8 @@
         $dbname = "Annonces";
 
         // chaîne de connexion pour PDO (ne pas modifier)
-        //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
-        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
+        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
+        //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
 
         // connexion au serveur de bases de données
@@ -181,5 +181,49 @@
         return $data;
     }
 
+
+   function check_user(){
+       
+        $requete = 'SELECT * FROM Membre WHERE email = "'.$_REQUEST['email'].'"'; 
+        $maBd = connexionbd();
+       
+        // FONCTION DE HACHAGE MDqqch 3 
+        // PAS BESOIN DE FETCH
+       
+
+        $donnees = requete($maBd, $requete); 
+        $data = Array('membres' => Array(), 'is_valid' => true );
+
+        foreach ($donnees as $val) {
+            $data['membres'][] = Array ('email' => $val['email'], 
+                                        'nom' => $val['nom'], 
+                                        'password' => $val['password']); 
+        }
+       
+        if ($_REQUEST['password'] != $data['membres'][0]['password'] or $_REQUEST['password']== "" or sizeof($data['membres'])==0 ){
+            $data = Array('membres' => Array(), 'is_valid' => false);
+        }
+        else {
+        
+            session_start();
+            $_SESSION["nom"] = $data['membres'][0]['nom'];
+        }
+        
+        return $data;
+        
+    }
+
+    function check_session(){        
+        session_start();
+        if (isset($_SESSION["nom"]) and $_SESSION["nom"] != ""){
+            return $_SESSION["nom"];
+        }
+        return false;
+    }
+
+    function deconnexion(){
+       // session_start();
+        session_destroy();
+    }
 ?>
 
