@@ -73,7 +73,8 @@
                     $date_ajout = $data["date_ajout"];
                     echo '<div class="panel panel-info">';
                         echo '<div class="panel-heading ">';
-                                echo '<h3 class="panel-title">' .$titre. ' <span class = "label label-primary">'.$categorie.'</span></h3>';
+                                echo '<h3 class="panel-title ">' .$titre. ' <span class = "label label-primary">'.$categorie.'</span></h3>';
+                      
                                
                          echo '</div>';                    
                          echo '<div class="panel-body">';
@@ -95,7 +96,7 @@
                             echo '<tr>';
                                 echo '<td> Latitude : '.$rdv_lat.' </br> Longitude : '.$rdv_lon.'</td>';
                                 echo '<td>'.$vendeur.'</td>';
-                                echo '<td>'.date_ajout.'</td>';
+                                echo '<td>'.$date_ajout.'</td>';
                             echo '</tr>';
 
 

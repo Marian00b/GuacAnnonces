@@ -4,7 +4,7 @@
 
 	include "bdd.php";
 
-    ajout();
+    supprimer();
 
 	
 ?>

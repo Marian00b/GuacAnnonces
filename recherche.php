@@ -52,7 +52,7 @@
                 </div>
             </nav>
         </header>
-        
+        <section class="cf">
         <main>  <!-- Main, norme HTML5 -->
             
             <div id="alertbox">
@@ -62,64 +62,45 @@
            // var_dump($_SESSION); 
             //session_destroy();
             ?>
-            
-            <h3> Ajoutez une annonce  </h3>
-            </br>
-    
-            <form id="ajout-form">
-                <fielset> 
-                    <legend> Info</legend>
-                <div class="form-group">
-                    <label>Type d'annonce :</label>
-                        <select name="categorie">
-                            <option value="immobilier">Immobilier</option>
-                            <option value="electronique">Électonique</option>
-                            <option value="vetement">Vêtement</option>
-                            <option value="bijoux">Bijoux</option>
-                            <option value="dvd_cd">DVD/CD</option>
-                        </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>Titre :</label>
-                    <input type="text" name="titre" placeholder="Titre de l'annonce" />
-                </div>
-                
-                <div class="form-group">
-                    <label>Descriptif :</label> </br>
-                    <textarea name="description" placeholder="Descriptif de l'annonce"></textarea>
-                </div>
+            <!--<script>
+            $(function() {
+            $(document).scroll(function() {
 
-                <div class="form-group">
-                    <label>Prix :</label>
-                    <input type="text" name="prix" placeholder="10 €" />
-                </div>
-                    
-                <div class="form-group">    
-                    <label>Nom :</label>
-                    <input type="text" name="nom_vendeur" placeholder="" />
-                </div>
-                    
-                <div class="form-group">    
-                    <label>Photo :</label>
-                    <input type="text" name="photo" placeholder="Lien URL vers la photo" />
-                </div>
-                    
-                <div class="form-group">    
-                    <label>Rdv lattitude :</label>
-                    <input type="number" name="rdv_lat" placeholder="" />
-                    <label>Rdv longitude :</label>
-                    <input type="number" name="rdv_lon" placeholder="" />
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Ajouter l'annonce</button>
-                
-                </fieldset>
-                
-            </form>
-        
-            </br>
-        
+           /* if($(document).scrollTop()>=200)
+            {*/
+            /*$('aside').css('position','fixed').css('right','-10px');*/
+            
+            $("aside").css('top', $(window).scrollTop()+'px');
+
+            /*}*/
+            else
+            {
+            $('aside').css('position','static');
+
+            }
+
+
+            });
+            });
+            </script>
+-->
+         <!--    <script type="text/javascript">
+        $(function() {
+            var offset = $("sidebar").offset();
+            var topPadding = 15;
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > offset.top) {
+                    $("sidebar").stop().animate({
+                        marginTop: $(window).scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $("sidebar").stop().animate({
+                        marginTop: 0
+                    });
+                };
+            });
+        });
+    </script>-->
             <h3> Recherchez selon vos critères </h3>
             </br>
         
@@ -151,7 +132,65 @@
             </div>
             
         </main>
-            
+        <aside>
+            <h3> Ajoutez une annonce  </h3>
+            </br>
+    
+            <form id="ajout-form">
+               <!-- <fielset> 
+                    <legend> Info</legend>-->
+                <div class="form-group">
+                    <label>Type d'annonce :</label>
+                        <select name="categorie">
+                            <option value="immobilier">Immobilier</option>
+                            <option value="electronique">Électonique</option>
+                            <option value="vetement">Vêtement</option>
+                            <option value="bijoux">Bijoux</option>
+                            <option value="dvd_cd">DVD/CD</option>
+                        </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Titre :</label>
+                    <input type="text" name="titre" placeholder="Titre de l'annonce" required/>
+                </div>
+                
+                <div class="form-group">
+                    <label>Descriptif :</label> </br>
+                    <textarea name="description" placeholder="Descriptif de l'annonce"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Prix :</label>
+                    <input type="text" name="prix" placeholder="10 €" required/>
+                </div>
+                    
+                <div class="form-group">    
+                    <label>Nom :</label>
+                    <input type="text" name="nom_vendeur" placeholder="" required />
+                </div>
+                    
+                <div class="form-group">    
+                    <label>Photo :</label>
+                    <input type="text" name="photo" placeholder="Lien URL vers la photo" />
+                </div>
+                    
+                <div class="form-group">    
+                    <label>Rdv lattitude :</label>
+                    <input type="number" name="rdv_lat" placeholder="" />
+                </div>
+                <div class="form-group">
+                    <label>Rdv longitude :</label>
+                    <input type="number" name="rdv_lon" placeholder="" />
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Ajouter l'annonce</button>
+                
+                <!--</fieldset>-->
+                
+            </form>
+        </aside>
+        </section>
         <footer>  
             <p> Tous droits réservés &copy Marianne Borderes et Gonché Danesh </p>
             <p> Dernière mise à jour : <time id="lastModif"></time> </p>

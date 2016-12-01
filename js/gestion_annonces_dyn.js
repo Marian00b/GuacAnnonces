@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
         var ret = '';
         ret+= '<div class="panel panel-info">';
         ret+= '<div class="panel-heading ">';
-        ret+= '<h3 class="panel-title">' + annonce.titre + ' <span class = "label label-primary">'+ annonce.categorie +'</span></h3>';
+        ret+= '<h3 class="panel-title pull-left">' + annonce.titre + ' <span class = "label label-primary">'+ annonce.categorie +'</span></h3>';
+        ret+= '<button type="button" id="'+annonce.id+'" class="btn btn-danger pull-right glyphicon glyphicon-trash supprimer"></button> ';
+        ret+= '<div class="clearfix"></div>';
         ret+= '</div>';                    
         ret+= '<div class="panel-body">';
         ret+= '<a href="#" class="pull-right"> <img class="media-object img-thumbnail" width="150" height="150" src="'+ annonce.photo +'" >';
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
         ret+= '<td>'+ annonce.date_ajout + '</td>';
         ret+= '</tr>';
         ret+= '</table>';
-        ret+= '<div style="width: 100%"><iframe width="100%" height="300" src="http://www.mapi.ie/create-google-map/map.php?width=100%&amp;height=300&amp;hl=en&amp;coord='+ annonce.rdv_lat +',' + annonce.rdv_lon +'3&amp;q=+(Lieu d\'achat)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> </iframe></div><br />';
+        //ret+= '<div style="width: 100%"><iframe width="100%" height="300" src="http://www.mapi.ie/create-google-map/map.php?width=100%&amp;height=300&amp;hl=en&amp;coord='+ annonce.rdv_lat +',' + annonce.rdv_lon +'3&amp;q=+(Lieu d\'achat)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> </iframe></div><br />';
         ret+= '</div>';
         return ret; 
                     
@@ -62,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
 			}
             
 			document.querySelector('#annonces').innerHTML = new_html;
+                    addSuprimer();
 
+            
 		});
 
 		request.open("POST", "php/get_latest_msg.php");    
@@ -93,16 +97,58 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
         
         refresh_annonces(new FormData(filterForm));
     });
-        
+    
+    
+    
+    var deleteBtns;
+    function addSuprimer() {
+        console.log("caca2");
+    deleteBtns = document.getElementsByClassName("supprimer");
+        console.log(deleteBtns);
+    Array.from(deleteBtns).forEach(function(deleteBtn) {
+                       console.log("caca");
+        console.log(deleteBtn.getAttribute("id"));
+
+        deleteBtn.addEventListener("click", function(event) {
+
+            event.preventDefault(); // ne pas recharger la page par défaut
+
+            var request = new XMLHttpRequest();
+
+            // Vérifie qu'il n'y a pas de pb lors du loading
+            request.addEventListener('load', function(data) {
+/*
+                console.log(JSON.parse(data.target.responseText));
+*/
+
+                if (data.target.status==500) {
+                    alert("Erreur d'envoie des filtres")
+                }
+                else {
+                    refresh_annonces();
+                }
+            }); 
+            var data=new FormData();
+            var atribuID = deleteBtn.getAttribute("id");
+            data.append('id',atribuID);
+            console.log(data);
+            request.open("POST", "php/supprimer.php");    
+            request.send(data);
+
+        });
+    });
+    }    
+    
+    refresh_annonces();
+
     
 
     /*******************************************************
     **** Afficage des annonces au chargement de la page ****
     *******************************************************/
         
-    refresh_annonces();
 	//setInterval(refresh_annonces, 1000);
-
+    
     
 });
                         

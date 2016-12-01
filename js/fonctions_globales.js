@@ -59,11 +59,11 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
                 new_html= '<form id="login-form" class="navbar-form navbar-right" role="form">';
                 new_html+= '<div class="input-group ">';
                 new_html+= '<span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i></span>'
-                new_html+= '<input id="email" type="email" class="form-control" name="email" value="" placeholder="Adresse Email">';
+                new_html+= '<input id="email" type="email" class="form-control" name="email" value="" placeholder="Adresse Email" required>';
                 new_html+= '</div>';
                 new_html+= '<div class="input-group">';
                 new_html+= '<span class="input-group-addon"> <i class="glyphicon glyphicon-lock"></i></span>';
-                new_html+= '<input id="password" type="password" class="form-control" name="password" value="" placeholder="Mot de passe">';
+                new_html+= '<input id="password" type="password" class="form-control" name="password" value="" placeholder="Mot de passe" required>';
                 new_html+= '</div>';
                 new_html+= '<button type="submit" class="btn btn-default glyphicon glyphicon-log-in"> </button>';
                 new_html+= '</form>';

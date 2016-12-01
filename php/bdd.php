@@ -12,8 +12,8 @@
         $dbname = "Annonces";
 
         // chaîne de connexion pour PDO (ne pas modifier)
-        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
-        //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
+        //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
+        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
 
         // connexion au serveur de bases de données
@@ -184,33 +184,17 @@
 
    function check_user(){
        
-        $requete = 'SELECT * FROM Membre WHERE email = "'.$_REQUEST['email'].'"'; 
+        $requete = 'SELECT * FROM Membre WHERE email = "'.$_REQUEST['email'].'" and password= "'.sha1($_REQUEST['password']).'"'; 
         $maBd = connexionbd();
-       
-        // FONCTION DE HACHAGE MDqqch 3 
-        // PAS BESOIN DE FETCH
-       
 
         $donnees = requete($maBd, $requete); 
-        $data = Array('membres' => Array(), 'is_valid' => true );
-
-        foreach ($donnees as $val) {
-            $data['membres'][] = Array ('email' => $val['email'], 
-                                        'nom' => $val['nom'], 
-                                        'password' => $val['password']); 
-        }
        
-        if ($_REQUEST['password'] != $data['membres'][0]['password'] or $_REQUEST['password']== "" or sizeof($data['membres'])==0 ){
-            $data = Array('membres' => Array(), 'is_valid' => false);
-        }
-        else {
-        
+        if(sizeof($donnees)) {
+            
             session_start();
-            $_SESSION["nom"] = $data['membres'][0]['nom'];
+            $_SESSION["nom"] = $donnees[0]["nom"];
+        
         }
-        
-        return $data;
-        
     }
 
     function check_session(){        
@@ -224,6 +208,42 @@
     function deconnexion(){
        // session_start();
         session_destroy();
+    }
+
+
+    function ajout() {
+
+	//test connexion a la base de donnee
+
+        $bd = connexionbd();
+        
+        if($_REQUEST["rdv_lon"]=="") {
+            $_REQUEST["rdv_lon"]=0;
+        }
+        if($_REQUEST["rdv_lat"]=="") {
+            $_REQUEST["rdv_lat"]=0;
+        }
+        //requete pour ajouter une annonce dans la BDD
+        $req = 	"INSERT INTO annonces VALUES "
+            . "( DEFAULT, '" 
+            . $_REQUEST[ "titre" ] . "', '" 
+            . $_REQUEST[ "description" ] . "', '" 
+            . $_REQUEST[ "categorie" ] . "', '" 
+            . $_REQUEST[ "nom_vendeur" ] . "', '"  
+            . $_REQUEST[ "prix" ] . "', '" 
+            . $_REQUEST[ "photo" ] . "', '" 
+            . $_REQUEST[ "rdv_lat" ] . "', '" 
+            . $_REQUEST[ "rdv_lon" ] . "', '" 
+            . date('Y-m-d G:i:s') . "' );";
+        //print $req;
+        requete( $bd, $req );
+    }
+
+    function supprimer() {
+        $bd = connexionbd();
+        $req = 'DELETE FROM annonces WHERE id="'.$_REQUEST["id"].'";';
+        echo $req;
+        requete($bd,$req);
     }
 ?>
 
