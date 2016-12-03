@@ -20,6 +20,7 @@
         <link href="./css/style.css" rel="stylesheet" />
         <script src="js/fonctions_globales.js"></script>
         <script src="js/gestion_annonces_dyn.js"></script>
+
         <script type="text/javascript" src="js/ajout.js"></script>
         
     </head>
@@ -29,6 +30,7 @@
             <h1 > <a href="index.html"><img class="logo" src="./images/logo2.png" id="logo"  height="100"/> </a> AnnonceÉtudiant </h1> <!-- 2 t à petites --> 
             <h2>Trouver et postez vos annonces gratuitement !</h2>
 
+            
             <nav class ="navbar navbar-default" id="menu">  
                 <div class="container-fluid">
                     <div class="navbar-header ">
@@ -41,7 +43,7 @@
                             <li> <a href="annonces.php"> Annonces </a></li>
                             <li class="active"> <a href="recherche.php"> Rechercher </a></li>
                             <li class = "dropdown"> 
-                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> Dropdown <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> Plus <span class="caret"></span></a>
                             </li>
                         </ul>
                       <div class="collapse navbar-collapse" id="login">
@@ -53,60 +55,29 @@
             </nav>
         </header>
         <section class="cf">
-        <main>  <!-- Main, norme HTML5 -->
-            
             <div id="alertbox">
             </div>
+            
+        <main>  <!-- Main, norme HTML5 -->
+            
             
             <?php 
            // var_dump($_SESSION); 
             //session_destroy();
             ?>
-            <!--<script>
-            $(function() {
-            $(document).scroll(function() {
-
-           /* if($(document).scrollTop()>=200)
-            {*/
-            /*$('aside').css('position','fixed').css('right','-10px');*/
             
-            $("aside").css('top', $(window).scrollTop()+'px');
-
-            /*}*/
-            else
-            {
-            $('aside').css('position','static');
-
-            }
+                  <div class="panel-group">
+              <div class="panel panel-default">
 
 
-            });
-            });
-            </script>
--->
-         <!--    <script type="text/javascript">
-        $(function() {
-            var offset = $("sidebar").offset();
-            var topPadding = 15;
-            $(window).scroll(function() {
-                if ($(window).scrollTop() > offset.top) {
-                    $("sidebar").stop().animate({
-                        marginTop: $(window).scrollTop() - offset.top + topPadding
-                    });
-                } else {
-                    $("sidebar").stop().animate({
-                        marginTop: 0
-                    });
-                };
-            });
-        });
-    </script>-->
-            <h3> Recherchez selon vos critères </h3>
-            </br>
+                  <div class="panel-heading recherche"><h3> Rechercher selon vos critères </h3></div>
+      <div class="panel-body">
         
-            <form id="filter-form">
-                  <label for="filter"> Rechercher le(s) mot-clé(s) [" " = OU, ";" = ET] </label>
+      
+            <form id="filter-form" class="navbar-form">
+                  <label for="filter"> Mot-clé(s) </label>
                   <input type="text" id="filter" name="filter"> 
+                
                   <label for="column"> dans </label>
                   <select name="column" id="column"> 
                     <option value="id"> Identifiant </option>
@@ -124,18 +95,25 @@
                  
                   <button type="submit" class="btn btn-primary">Afficher les données</button>
             </form>
+                  </div>
             
     
             </br>
             
             <div id="annonces">
             </div>
+                      
+            </div></div>
             
         </main>
         <aside>
-            <h3> Ajoutez une annonce  </h3>
-            </br>
+        
     
+            <div class="panel-group">
+              <div class="panel panel-default">
+                    <div class="panel-heading ajout"><h3> Ajouter une annonce  </h3></div>
+                  <div class="panel-body">
+
             <form id="ajout-form">
                <!-- <fielset> 
                     <legend> Info</legend>-->
@@ -152,49 +130,54 @@
                 
                 <div class="form-group">
                     <label>Titre :</label>
-                    <input type="text" name="titre" placeholder="Titre de l'annonce" required/>
+                    <input class="form-control input-sm" type="text" name="titre" placeholder="Titre de l'annonce" required/>
                 </div>
                 
                 <div class="form-group">
                     <label>Descriptif :</label> </br>
-                    <textarea name="description" placeholder="Descriptif de l'annonce"></textarea>
+                    <textarea class="form-control input-sm" name="description" placeholder="Descriptif de l'annonce" rows = "1"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Prix :</label>
-                    <input type="text" name="prix" placeholder="10 €" required/>
+                    <input class="form-control input-sm" type="number" name="prix" placeholder="10 €" required/>
                 </div>
                     
                 <div class="form-group">    
                     <label>Nom :</label>
-                    <input type="text" name="nom_vendeur" placeholder="" required />
+                    <input class="form-control input-sm" type="text" name="nom_vendeur" placeholder="" required />
                 </div>
                     
                 <div class="form-group">    
                     <label>Photo :</label>
-                    <input type="text" name="photo" placeholder="Lien URL vers la photo" />
+                    <input class="form-control input-sm" type="text" name="photo" placeholder="Lien URL vers la photo" />
                 </div>
                     
-                <div class="form-group">    
+                <div class="form-group ">    
                     <label>Rdv lattitude :</label>
-                    <input type="number" name="rdv_lat" placeholder="" />
+                    <input class="form-control input-sm" type="number" name="rdv_lat" placeholder="" />
                 </div>
                 <div class="form-group">
                     <label>Rdv longitude :</label>
-                    <input type="number" name="rdv_lon" placeholder="" />
+                    <input class="form-control input-sm"  type="number" name="rdv_lon" placeholder="" />
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Ajouter l'annonce</button>
+                <button class="form-control input-sm " type="submit" class="btn btn-primary">Ajouter l'annonce</button>
                 
                 <!--</fieldset>-->
                 
             </form>
+                </div>
+    
+    </div>
         </aside>
         </section>
         <footer>  
             <p> Tous droits réservés &copy Marianne Borderes et Gonché Danesh </p>
             <p> Dernière mise à jour : <time id="lastModif"></time> </p>
         </footer>
+
+<!--  <script src="js/toggle.js"></script>-->
         
     </body>  <!--Footer dans body -->
     

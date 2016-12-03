@@ -4,7 +4,7 @@
 
 	include "bdd.php";
 
-    supprimer();
+    echo json_encode(supprimer());
 
 	
 ?>

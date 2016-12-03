@@ -40,7 +40,7 @@
                             <li  class="active"> <a href="annonces.php"> Annonces </a></li>
                             <li> <a href="recherche.php"> Rechercher </a></li>
                             <li class = "dropdown"> 
-                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> Dropdown <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> Plus <span class="caret"></span></a>
                             </li>
                         </ul>
                       <div class="collapse navbar-collapse" id="login">
@@ -101,7 +101,7 @@
 
 
                          echo '</table>';
-                        echo '<div style="width: 100%"><iframe width="100%" height="300" src="http://www.mapi.ie/create-google-map/map.php?width=100%&amp;height=300&amp;hl=en&amp;coord='.$rdv_lat.','.$rdv_lon.'3&amp;q=+(Lieu d\'achat)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> </iframe></div><br />';
+//                        echo '<div style="width: 100%"><iframe width="100%" height="300" src="http://www.mapi.ie/create-google-map/map.php?width=100%&amp;height=300&amp;hl=en&amp;coord='.$rdv_lat.','.$rdv_lon.'3&amp;q=+(Lieu d\'achat)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> </iframe></div><br />';
                     
                     echo '</div>';
                     

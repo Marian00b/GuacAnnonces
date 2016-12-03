@@ -42,10 +42,12 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
                 new_html += '</form> </div></li></ul>';
 
                 document.querySelector('#login').innerHTML = new_html;    
-                
-                document.getElementById('alertbox').innerHTML = '<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong> Connexion réussie ! </strong> Vous pouvez maintenant ajouter/supprimer des annonces à votre guise.  </div>';
 
                 add_deco();
+                 
+                if (toCheck){
+                    document.getElementById('alertbox').innerHTML = '<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong> Connexion réussie ! </strong> Vous pouvez maintenant ajouter/supprimer des annonces à votre guise.  </div>';
+                }
             }
             else if (toCheck) {
                 var all_a =  document.querySelectorAll('#login-form div.input-group'); 

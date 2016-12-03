@@ -12,8 +12,8 @@
         $dbname = "Annonces";
 
         // chaîne de connexion pour PDO (ne pas modifier)
-        //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
-        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
+        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
+        //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
 
         // connexion au serveur de bases de données
@@ -233,17 +233,49 @@
             . $_REQUEST[ "prix" ] . "', '" 
             . $_REQUEST[ "photo" ] . "', '" 
             . $_REQUEST[ "rdv_lat" ] . "', '" 
-            . $_REQUEST[ "rdv_lon" ] . "', '" 
-            . date('Y-m-d G:i:s') . "' );";
+            . $_REQUEST[ "rdv_lon" ] . "', " 
+            . "DEFAULT" . " );";
         //print $req;
         requete( $bd, $req );
     }
 
     function supprimer() {
-        $bd = connexionbd();
-        $req = 'DELETE FROM annonces WHERE id="'.$_REQUEST["id"].'";';
-        echo $req;
-        requete($bd,$req);
+        if (check_session()) {
+            $bd = connexionbd();
+            $req = 'DELETE FROM annonces WHERE id="'.$_REQUEST["id"].'";';
+//            echo $req;
+            requete($bd,$req);
+            return "true";
+        }
+        return "false";
+        
     }
+
+
+    function get_latest_message() {
+        
+        $requete = "SELECT * FROM annonces ORDER by date_ajout DESC LIMIT 1"; 
+        
+        $maBd = connexionbd();
+
+        $donnees = requete($maBd, $requete); 
+        $data = Array('annonces' => Array());
+
+        foreach ($donnees as $val) {
+            $data['annonces'][] = Array ('id' => $val['id'], 
+                                        'titre' => $val['titre'], 
+                                        'description' => $val['description'], 
+                                        'categorie' => $val['categorie'],
+                                        'nom_vendeur' => $val['nom_vendeur'],
+                                        'prix' => $val['prix'],
+                                        'photo' => $val['photo'],
+                                        'rdv_lat' => $val['rdv_lat'],
+                                        'rdv_lon' => $val['rdv_lon'],
+                                        'date_ajout' => $val['date_ajout']); 
+        }
+
+        return $data;
+    }
+
 ?>
 

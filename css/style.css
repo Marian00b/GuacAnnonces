@@ -11,7 +11,7 @@ h1
 }
 
 body {
-    width: 70%;
+    width: 80%;
     margin: auto;
 }
 
@@ -83,11 +83,20 @@ footer { 
 aside {
 position: fixed;
 /*bottom: 0;*/
-right: 17%;
-width: 15%;
+right: 10%;
+width: 22%;
 float:right;
-background-color: white;
+/*background-color: white;*/
 }
+
+/*
+aside div.panel-body {
+    position:fixed;
+    
+}
+*/
+
+
 .cf main  {
     float: left;
     width : 70%;

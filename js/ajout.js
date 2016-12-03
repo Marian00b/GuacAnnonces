@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // On vide le champ du message (juste pour faire joli)
                 form.reset();
 
-               document.getElementById('alertbox').innerHTML = '<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong> Annonce ajoutée ! </strong> Vous pouvez la consulter dès à présent.  </div>';
+               document.getElementById('alertbox').innerHTML = '<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong> Annonce ajoutée ! </strong> Vous pouvez la consulter dès à présent en cliquant sur "Afficher les données".  </div>';
             }
 /*
 
