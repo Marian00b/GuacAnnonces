@@ -27,7 +27,7 @@
     <body>
         
         <header >
-            <h1 > <a href="index.html"><img class="logo" src="./images/logo2.png" id="logo"  height="100"/> </a> AnnonceÉtudiant </h1> <!-- 2 t à petites --> 
+            <h1 > <a href="index.php"><img class="logo" src="./images/logo2.png" id="logo"  height="100"/> </a> AnnonceÉtudiant </h1> <!-- 2 t à petites --> 
             <h2>Trouver et postez vos annonces gratuitement !</h2>
 
             
@@ -39,11 +39,11 @@
                     
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-left " >
-                            <li> <a href="index.php"> Accueil </a></li>
+                            <li> <a href="index.php"><span class="glyphicon glyphicon-home"></span> </a></li>
                             <li> <a href="annonces.php"> Annonces </a></li>
                             <li class="active"> <a href="recherche.php"> Rechercher </a></li>
                             <li class = "dropdown"> 
-                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> Plus <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
                             </li>
                         </ul>
                       <div class="collapse navbar-collapse" id="login">
@@ -69,33 +69,66 @@
                   <div class="panel-group">
               <div class="panel panel-default">
 
-
-                  <div class="panel-heading recherche"><h3> Rechercher selon vos critères </h3></div>
+                  <div class="panel-heading recherche"><h4> <span class="glyphicon glyphicon-th-list"> </span> Lister les annonces selon vos critères </h4></div>
       <div class="panel-body">
         
       
-            <form id="filter-form" class="navbar-form">
-                  <label for="filter"> Mot-clé(s) </label>
-                  <input type="text" id="filter" name="filter"> 
+            <form id="filter-form" class="form form-horizontal">
                 
-                  <label for="column"> dans </label>
-                  <select name="column" id="column"> 
-                    <option value="id"> Identifiant </option>
-                    <option value="titre"> Titre </option>
-                    <option value="description"> Description </option>
-                    <option value="categorie"> Catégorie </option>
-                    <option value="nom_vendeur"> Vendeur </option>
-                    <option value="prix"> Prix </option>
-                    <option value="photo"> Photo </option>
-                    <option value="rdv_lat"> Latitude </option>
-                    <option value="rdv_lon"> Longitude </option>
-                    <option value="date_ajout"> Date </option>
-                    <option value="all" selected> Tout </option>
-                  </select>
-                 
-                  <button type="submit" class="btn btn-primary">Afficher les données</button>
-            </form>
+                
+                <div class="form-group">
+                <div class="col-xs-4">
+                  <div class="input-group">
+                      <span class="input-group-addon transparent"><span class="glyphicon glyphicon-filter"></span></span>
+                      <input class="form-control left-border-none" type="text" id ="filter" name="filter" placeholder="Vos filtres">
                   </div>
+                </div>
+        
+<!--
+                <div class="col-xs-2">
+                <span> Catégorie</span>
+                    </div>
+-->
+
+                <div class="col-xs-2">
+                  <div class="input-group">
+                       <select class="form-control" name="column" value="Catégorie" id="column"> 
+                           <optgroup label="Catégorie">
+
+                        <option value="id"> Identifiant </option>
+                        <option value="titre"> Titre </option>
+                        <option value="description"> Description </option>
+                        <option value="categorie"> Catégorie </option>
+                        <option value="nom_vendeur"> Vendeur </option>
+                        <option value="prix"> Prix </option>
+                        <option value="photo"> Photo </option>
+                        <option value="rdv_lat"> Latitude </option>
+                        <option value="rdv_lon"> Longitude </option>
+                        <option value="date_ajout"> Date </option>
+                        <option value="all" selected > Tout </option>
+                           </optgroup>
+                    </select>
+
+                  </div>
+<!--                </div>-->  
+<!--                                                        <button  type="submit" class="btn btn-primary">Afficher les données</button>-->
+                    
+              </div>
+                    
+                    <div class="col-xs-4">
+                
+                                                        <button  type="submit" class="btn btn-primary">Afficher les données</button>
+                    </div>
+                 
+                        
+                </div> 
+             
+            </form>
+                
+                <p>
+                <span class="glyphicon glyphicon-info-sign"></span> Séparez vos mot-clé(s) avec un espace pour définir un "ou" et avec un point-virgule pour un "et". </p>
+                
+                </div> 
             
     
             </br>
@@ -111,58 +144,76 @@
     
             <div class="panel-group">
               <div class="panel panel-default">
-                    <div class="panel-heading ajout"><h3> Ajouter une annonce  </h3></div>
+                    <div class="panel-heading ajout"><h4>  <span class="glyphicon glyphicon-edit"></span> Ajouter une annonce </h4></div>
                   <div class="panel-body">
 
             <form id="ajout-form">
                <!-- <fielset> 
                     <legend> Info</legend>-->
                 <div class="form-group">
-                    <label>Type d'annonce :</label>
-                        <select name="categorie">
+<!--                    <label>Type d'annonce :</label>-->
+                        <select class ="form-control input-sm" name="categorie">
+                            <optgroup label="Catégorie" selected>
                             <option value="immobilier">Immobilier</option>
                             <option value="electronique">Électonique</option>
                             <option value="vetement">Vêtement</option>
                             <option value="bijoux">Bijoux</option>
                             <option value="dvd_cd">DVD/CD</option>
+                                </optgroup>
                         </select>
                 </div>
                 
+                
                 <div class="form-group">
-                    <label>Titre :</label>
+                     <div class="input-group">
+                      <span class="input-group-addon transparent"><span class="glyphicon glyphicon-tag"></span></span>
                     <input class="form-control input-sm" type="text" name="titre" placeholder="Titre de l'annonce" required/>
+                  </div>
+<!--                    <label>Titre :</label>-->
                 </div>
                 
                 <div class="form-group">
-                    <label>Descriptif :</label> </br>
-                    <textarea class="form-control input-sm" name="description" placeholder="Descriptif de l'annonce" rows = "1"></textarea>
+<!--                    <label>Descriptif :</label> </br>-->
+                      <div class="input-group">
+                      <span class="input-group-addon transparent"><span class="glyphicon glyphicon-pencil"></span></span>
+                          <textarea class="form-control input-sm" name="description" placeholder="Descriptif de l'annonce" rows = "5" maxlength="250" style="resize:none"></textarea> </div> 
                 </div>
 
-                <div class="form-group">
-                    <label>Prix :</label>
-                    <input class="form-control input-sm" type="number" name="prix" placeholder="10 €" required/>
+                <div class="form-group">  <div class="input-group">
+                      <span class="input-group-addon transparent"><span class="glyphicon glyphicon-euro"></span></span>
+<!--                    <label>Prix :</label>-->
+                    <input class="form-control input-sm" type="number" name="prix" placeholder="10 €" required/></div>
                 </div>
                     
                 <div class="form-group">    
-                    <label>Nom :</label>
-                    <input class="form-control input-sm" type="text" name="nom_vendeur" placeholder="" required />
+<!--                    <label>Nom :</label>-->  <div class="input-group">
+                      <span class="input-group-addon transparent"><span class="glyphicon glyphicon-user"></span></span>
+                    <input class="form-control input-sm" type="text" name="nom_vendeur" placeholder="Votre nom" required /></div>
                 </div>
                     
                 <div class="form-group">    
-                    <label>Photo :</label>
-                    <input class="form-control input-sm" type="text" name="photo" placeholder="Lien URL vers la photo" />
+<!--                    <label>Photo :</label>-->   <div class="input-group">
+                      <span class="input-group-addon transparent"><span class="glyphicon glyphicon-picture"></span></span>
+                    <input class="form-control input-sm" type="text" name="photo" placeholder="Lien URL vers la photo" /></div>
                 </div>
                     
                 <div class="form-group ">    
-                    <label>Rdv lattitude :</label>
-                    <input class="form-control input-sm" type="number" name="rdv_lat" placeholder="" />
+<!--                    <label>Rdv lattitude :</label>-->  <div class="input-group">
+                      <span class="input-group-addon transparent"><span class="glyphicon glyphicon-map-marker"></span></span>
+                    <input class="form-control input-sm" type="number" name="rdv_lat" placeholder="Latitude" /></div>
                 </div>
                 <div class="form-group">
-                    <label>Rdv longitude :</label>
-                    <input class="form-control input-sm"  type="number" name="rdv_lon" placeholder="" />
+<!--                    <label>Rdv longitude :</label>-->  <div class="input-group">
+                      <span class="input-group-addon transparent"><span class="glyphicon glyphicon-map-marker"></span></span>
+                    <input class="form-control input-sm"  type="number" name="rdv_lon" placeholder="Longitude" /></div>
                 </div>
                 
-                <button class="form-control input-sm " type="submit" class="btn btn-primary">Ajouter l'annonce</button>
+<!--                 <div class="col-xs-4">-->
+                <center>
+                <button  type="submit" class="btn btn-primary">Envoyer <span class="glyphicon glyphicon-send"></span></button>
+                <button  type="reset" class="btn btn-primary"> Effacer <span class="glyphicon glyphicon-erase"></span></button>
+                    </center>
+<!--                </div>-->
                 
                 <!--</fieldset>-->
                 

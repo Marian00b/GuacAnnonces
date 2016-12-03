@@ -79,7 +79,6 @@ footer { 
     font-size: 20px;
 }
 
-
 aside {
 position: fixed;
 /*bottom: 0;*/
@@ -110,3 +109,7 @@ aside div.panel-body {
 .cf:after{
     clear:both;
 }
+
+
+@input-border-radius: 0;  
+    

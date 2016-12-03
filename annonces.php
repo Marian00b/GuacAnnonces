@@ -25,7 +25,7 @@
     <body>
         
         <header >
-            <h1 > <a href="index.html"><img class="logo" src="./images/logo2.png" id="logo"  height="100"/> </a> AnnonceÉtudiant </h1> <!-- 2 t à petites --> 
+            <h1 > <a href="index.php"><img class="logo" src="./images/logo2.png" id="logo"  height="100"/> </a> AnnonceÉtudiant </h1> <!-- 2 t à petites --> 
             <h2>Trouver et postez vos annonces gratuitement !</h2>
 
             <nav class ="navbar navbar-default" id="menu">  
@@ -36,11 +36,11 @@
                     
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-left">
-                            <li > <a href="index.php"> Accueil </a></li>
+                            <li> <a href="index.php"><span class="glyphicon glyphicon-home"></span> </a></li>
                             <li  class="active"> <a href="annonces.php"> Annonces </a></li>
                             <li> <a href="recherche.php"> Rechercher </a></li>
                             <li class = "dropdown"> 
-                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> Plus <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
                             </li>
                         </ul>
                       <div class="collapse navbar-collapse" id="login">
