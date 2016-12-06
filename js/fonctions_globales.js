@@ -11,17 +11,16 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
     var date = new Date(document.lastModified);
     date = date.toLocaleString();
     document.getElementById("lastModif").innerHTML = date;
-   // console.log(date);
+
     
     /*******************************************************
     ********************************************************
     *******************************************************/
     
-      /*******************************************************
+    /*******************************************************
     ******** Ajoute toutes/certaines annonces de la BDD ****
     *******************************************************/
     
-   // var decoForm;
     
     function connexion(toCheck){
                 
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
             var session_val = JSON.parse(data.target.responseText);
             var new_html; 
             
-            //console.log(session_val); 
             
             if (session_val) {
                 new_html = '<ul class="nav navbar-nav navbar-right"> <li> <p class="navbar-text"> Bonjour ' + session_val + '</p></li>';
@@ -91,28 +89,10 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
         
 		request.addEventListener('load', function(data) {
             
-			var ret = JSON.parse(data.target.responseText);
+//			var ret = JSON.parse(data.target.responseText);
             
             connexion(true);
         
-//            if (ret.is_valid) {
-//            
-//                var new_html = 'Bonjour ' + ret.membres[0].nom;
-//                new_html += '<div id="deco">';
-//                new_html += '<form id="deco-form" class="navbar-form navbar-right" role="form">';
-//                new_html += '<button type="submit" class="btn btn-primary"> Déconnexion </button>';
-//                new_html += '</form> </div>';
-//            
-//                document.querySelector('#login').innerHTML = new_html;
-//            }
-//            
-//            else { 
-//            
-//                var new_html = 'Nom d\'utilisateur/Mot de passe incorrect'; 
-//                document.querySelector('#login').innerHTML += new_html;
-//            
-//            }
-            
 		});
 
 		request.open("POST", "php/login.php");    
@@ -157,8 +137,6 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
         decoForm = document.getElementById('deco-form');
 
         decoForm.addEventListener("submit", function(event) {
-            
-            
 
             event.preventDefault(); // ne pas recharger la page par défa
               var request = new XMLHttpRequest();
@@ -172,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
         });
         
     }
-
     
         
     connexion();

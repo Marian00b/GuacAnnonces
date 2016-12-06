@@ -1,6 +1,4 @@
 <?php
-include("bdd.php");
-
-insertion_exemples()
-    
+    include("bdd.php");
+    insertion_exemples();
 ?>

@@ -73,7 +73,7 @@
     /*******************************************************
     ******** Récupère soit ALL soit certains messages ******
     *******************************************************/
-    function get_messages() {
+    function get_all_messages() {
 
         // Requête par défaut 
         $requete = "SELECT * FROM annonces"; 
@@ -205,15 +205,7 @@
         return false;
     }
 
-    function deconnexion(){
-       // session_start();
-        session_destroy();
-    }
-
-
     function ajout() {
-
-	//test connexion a la base de donnee
 
         $bd = connexionbd();
         
@@ -235,7 +227,7 @@
             . $_REQUEST[ "rdv_lat" ] . "', '" 
             . $_REQUEST[ "rdv_lon" ] . "', " 
             . "DEFAULT" . " );";
-        //print $req;
+        
         requete( $bd, $req );
     }
 
@@ -243,7 +235,6 @@
         if (check_session()) {
             $bd = connexionbd();
             $req = 'DELETE FROM annonces WHERE id="'.$_REQUEST["id"].'";';
-//            echo $req;
             requete($bd,$req);
             return "true";
         }
@@ -251,6 +242,10 @@
         
     }
 
+    function deconnexion(){
+        session_start();
+        session_destroy();
+    }
 
     function get_latest_message() {
         
@@ -275,6 +270,22 @@
         }
 
         return $data;
+    }
+
+    function inscription() {
+        
+        $bd = connexionbd();
+        $req = 	"INSERT INTO Membre VALUES ('" 
+            . $_REQUEST[ "email" ] . "', '" 
+            . $_REQUEST[ "nom" ] . "', '" 
+            . sha1($_REQUEST[ "password" ])
+            . "' );";
+        
+//        echo $req;
+        
+        $text = requete( $bd, $req );
+        
+        echo $text;
     }
 
 ?>
