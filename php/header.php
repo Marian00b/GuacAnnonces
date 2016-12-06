@@ -13,7 +13,7 @@
     echo '<li > <a href="index.php"><span class="glyphicon glyphicon-home"></span> </a></li>';
     echo '<li > <a href="annonces.php"> Annonces </a></li>';
     echo '<li> <a href="recherche.php"> Rechercher </a></li>';
-    echo '<li class = "dropdown" id="inscription_menu">';
+    echo '<li class = "dropdown">';
     echo '<a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false">';  
     echo '<span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>';
     echo '<ul class = "dropdown-menu">';
