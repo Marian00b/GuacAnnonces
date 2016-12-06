@@ -10,9 +10,9 @@
     echo '<button type = "button" class = "navbar-toggle horizontal"';
     echo 'data-toggle = "collapse" data-target = "#example-navbar-collapse">';
     echo '<ul class="nav">';
-    echo '<li id="home_menu"> <a href="index.php"><span class="glyphicon glyphicon-home"></span> </a></li>';
-    echo '<li id="annonce_menu"> <a href="annonces.php"> Annonces </a></li>';
-    echo '<li id="recherche_menu"> <a href="recherche.php"> Rechercher </a></li>';
+    echo '<li > <a href="index.php"><span class="glyphicon glyphicon-home"></span> </a></li>';
+    echo '<li > <a href="annonces.php"> Annonces </a></li>';
+    echo '<li> <a href="recherche.php"> Rechercher </a></li>';
     echo '<li class = "dropdown" id="inscription_menu">';
     echo '<a href="#" class="dropdown-toogle" data-toggle="dropdown" role="button" aria-expanded="false">';  
     echo '<span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>';
