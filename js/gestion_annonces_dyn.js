@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
         else {
 
             $(this).parent().parent().parent().parent().siblings("div.inner").append('<div class="map_div" style="width: 100%"><iframe width="100%" height="300" src="http://www.mapi.ie/create-google-map/map.php?width=100%&amp;height=300&amp;hl=en&amp;coord='+ $(this).parent().parent().parent().parent().siblings("div.inner").attr("id") +'3&amp;q=+(Lieu d\'achat)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"> </iframe></div><br />' );
+
             $(this).text("(Cliquez ici pour cacher la carte)");
 
         }

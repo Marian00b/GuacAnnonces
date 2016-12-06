@@ -39,14 +39,15 @@
             </div>
             <div class="panel-group">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h4>  <span class="glyphicon glyphicon-edit"></span> S'inscrire </h4></div>
+                        <div class="panel-heading text-center"><h4>  <span class="glyphicon glyphicon-edit"></span> S'inscrire </h4></div>
                         <div class="panel-body">
-                            <div id="center-form">
+<!--                            <div id="center-form" c>-->
                                 
+                            
                             <form id="inscrit-form">
 
-                                <div class="form-group">                               
-                                    <div class="col-xs-5">
+                                <div class="form-group">      
+                                    <div class="col-sm-11 col-md-6 col-md-offset-3">
 
                                      
                                     <div class="input-group">
@@ -87,7 +88,7 @@
                              
 
                             </form>
-                            </div>
+<!--                            </div>-->
                         </div>
 
                     </div>

@@ -281,12 +281,10 @@
             . sha1($_REQUEST[ "password" ])
             . "' );";
         
-//        echo $req;
+       $ret = requete( $bd, $req );
         
-        $text = requete( $bd, $req );
-        
-        echo $text;
+        if (!isset($ret)){
+            return false;
+        }
+        return true;
     }
-
-?>
-

@@ -1,4 +1,4 @@
 <?php
     include('bdd.php');
-    inscription();
+    echo json_encode(inscription());
 ?>
