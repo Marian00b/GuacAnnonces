@@ -10,6 +10,8 @@
         <meta charset="utf-8"/>
         <title> AnnonceÉtudiant </title>
         
+        <link rel="icon" href="images/and.png"/>
+
         <!-- Librairies externes -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -47,7 +49,7 @@
     
                             <form id="filter-form" class="form form-horizontal">
                                 <div class="form-group">
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-3">
                                       <div class="input-group">
                                           <span class="input-group-addon transparent"><span class="glyphicon glyphicon-filter"></span></span>
                                           <input class="form-control left-border-none" type="text" id ="filter" name="filter" placeholder="Vos filtres">
@@ -55,7 +57,7 @@
                                     </div>
 
 
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                       <div class="input-group">
                                            <select class="form-control" name="column" value="Catégorie" id="column"> 
                                                <optgroup label="Catégorie">
@@ -75,8 +77,8 @@
                                       </div>
                                     </div> 
 
-                                    <div class="col-xs-4">
-                                        <button  type="submit" class="btn btn-primary">Afficher les données</button>
+                                    <div class="col-xs-2">
+                                        <button  type="submit" class="btn btn-primary btn-responsive">Afficher les données</button>
                                     </div>
 
 
@@ -112,6 +114,8 @@
                             <form id="ajout-form">
 
                                 <div class="form-group">
+<!--                                     <div class="col-xs-2">-->
+                                     <div class="input-group">
 
                                         <select class ="form-control input-sm" name="categorie">
                                             <optgroup label="Catégorie">
@@ -123,66 +127,76 @@
                                             </optgroup>
                                         </select>
                                 </div>
+                                    </br>
 
-
-                                <div class="form-group">
+<!--                                <div class="form-group">-->
                                      <div class="input-group">
                                         <span class="input-group-addon transparent"><span class="glyphicon glyphicon-tag"></span></span>
                                         <input class="form-control input-sm" type="text" name="titre" placeholder="Titre de l'annonce" required/>
                                     </div>
-                                </div>
-
-                                <div class="form-group">
+<!--                                </div>-->
+</br>
+<!--                                <div class="form-group">-->
 
                                     <div class="input-group">
                                       <span class="input-group-addon transparent"><span class="glyphicon glyphicon-pencil"></span></span>
                                       <textarea class="form-control input-sm" name="description" placeholder="Descriptif de l'annonce" rows = "5" maxlength="250" style="resize:none"></textarea> 
                                     </div> 
-                                </div>
-
-                                <div class="form-group">  <div class="input-group">
+<!--                                </div>-->
+</br>
+<!--                                <div class="form-group"> -->
+                                    <div class="input-group">
                                     <span class="input-group-addon transparent"><span class="glyphicon glyphicon-euro"></span></span>
                                     <input class="form-control input-sm" type="number" name="prix" placeholder="10 €" required/></div>
-                                </div>
-
-                                <div class="form-group">    
+<!--                                </div>-->
+</br>
+<!--                                <div class="form-group">    -->
                                     <div class="input-group">
                                         <span class="input-group-addon transparent"><span class="glyphicon glyphicon-user"></span></span>
                                         <input class="form-control input-sm" type="text" name="nom_vendeur" placeholder="Votre nom" required />
                                     </div>
-                                </div>
-
-                                <div class="form-group">    
+<!--                                </div>-->
+</br>
+<!--                                <div class="form-group">    -->
                                     <div class="input-group">
                                         <span class="input-group-addon transparent"><span class="glyphicon glyphicon-picture"></span></span>
                                         <input class="form-control input-sm" type="text" name="photo" placeholder="Lien URL vers la photo" />
                                     </div>
-                                </div>
-
-                                <div class="form-group ">    
+<!--                                </div>-->
+</br>
+<!--                                <div class="form-group ">    -->
                                     <div class="input-group">
                                         <span class="input-group-addon transparent"><span class="glyphicon glyphicon-map-marker"></span></span>
                                         <input class="form-control input-sm" type="number" name="rdv_lat" placeholder="Latitude" />
                                     </div>
-                                </div>
-
-                                <div class="form-group">
+<!--                                </div>-->
+</br>
+<!--                                <div class="form-group">-->
                                     <div class="input-group">
                                         <span class="input-group-addon transparent"><span class="glyphicon glyphicon-map-marker"></span></span>
                                         <input class="form-control input-sm"  type="number" name="rdv_lon" placeholder="Longitude" />
                                     </div>
-                                </div>
+<!--                                </div>-->
 
-                           
+</br>
+<!--  </div>  -->
                                 <center>
-                                    <button  type="submit" class="btn btn-primary">Envoyer <span class="glyphicon glyphicon-send"></span></button>
-                                    <button  type="reset" class="btn btn-primary"> Effacer <span class="glyphicon glyphicon-erase"></span></button>
+<!--                                                                     <div class="col-sm-1 col-md-1 col-md-offset-1">-->
+
+                                    <div class=" btn-responsive">
+                                    <button  type="submit" class="btn btn-primary btn-responsive">Envoyer <span class="glyphicon glyphicon-send"></span></button>
+                                    <button  type="reset" class="btn btn-primary btn-responsive"> Effacer <span class="glyphicon glyphicon-erase"></span></button>
+                                        </div>
+<!--                                    </div>-->
                                 </center>
-                             
+<!--                                    </div>-->
+<!--                                </div>  
+-->
+ </div>
 
                             </form>
 
-                        </div>
+                       
 
                     </div>
                 </div>

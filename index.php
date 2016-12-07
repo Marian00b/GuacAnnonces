@@ -1,4 +1,4 @@
-<?php
+ <?php
     session_start();
 ?>
 
@@ -9,7 +9,9 @@
         
         <meta charset="utf-8"/>
         <title> AnnonceÉtudiant </title>
-                
+        
+        <link rel="icon" href="images/and.png"/>
+        
         <!-- Librairies externes -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -19,6 +21,8 @@
         <!-- Librairies personnelles --> 
         <link href="./css/style.css" rel="stylesheet" />
         <script src="js/fonctions_globales.js"></script>
+        
+       
         
     </head>
     
@@ -99,7 +103,7 @@
         
         <?php
             include 'php/footer.php';
-        ?>
+        ?> 
 
     </body> 
     

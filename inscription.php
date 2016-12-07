@@ -10,6 +10,9 @@
         <meta charset="utf-8"/>
         <title> AnnonceÉtudiant </title>
                 
+         <link rel="icon" href="images/and.png" />
+
+        
         <!-- Librairies externes -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">

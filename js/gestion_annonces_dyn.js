@@ -122,32 +122,37 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
         deleteBtn.addEventListener("click", function(event) {
 
             event.stopPropagation();
-
-            var request = new XMLHttpRequest();
-
-            // Vérifie qu'il n'y a pas de pb lors du loading
-            request.addEventListener('load', function(data) {
-
-                var ret = JSON.parse(data.target.responseText);
-                
-                if (data.target.status==500) {
-                    alert("Erreur d'envoie des filtres")
-                }
-                else if (ret=="false") {
-                    document.getElementById('alertbox').innerHTML = '<div class="alert alert-danger alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Attention! </strong> Vous devez vous connecter pour supprimer une annonce. </div>';
-                    window.top.window.scrollTo(0,0);
-                }
-                else {
-                    refresh_annonces("",true);
-                }
-            }); 
             
-            var data=new FormData();
-            var atribuID = deleteBtn.getAttribute("id");
-            data.append('id',atribuID);
+            if (confirm("Voulez-vous vraiment supprimer cette annonce?")) {
+                var request = new XMLHttpRequest();
 
-            request.open("POST", "php/supprimer.php");    
-            request.send(data);
+                // Vérifie qu'il n'y a pas de pb lors du loading
+                request.addEventListener('load', function(data) {
+
+                    var ret = JSON.parse(data.target.responseText);
+
+                    if (data.target.status==500) {
+                        alert("Erreur d'envoie des filtres")
+                    }
+                    else if (ret=="false") {
+                        document.getElementById('alertbox').innerHTML = '<div class="alert alert-danger alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Attention! </strong> Vous devez vous connecter pour supprimer une annonce. </div>';
+                        window.top.window.scrollTo(0,0);
+                    }
+                    else {
+                        document.getElementById('alertbox').innerHTML = '<div class="alert alert-success alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong> Supression réussie ! </strong> N\'hésitez pas à ajouter de nouvelles annonces. </div>';
+                        window.top.window.scrollTo(0,0);
+                        refresh_annonces("",true); 
+
+                    }
+                }); 
+
+                var data=new FormData();
+                var atribuID = deleteBtn.getAttribute("id");
+                data.append('id',atribuID);
+
+                request.open("POST", "php/supprimer.php");    
+                request.send(data);
+            } 
 
         });
     });

@@ -2,24 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function () { // après chargement
 
-    /*******************************************************
-    ************** Date de modification automatique ********
-    *******************************************************/
-    
-    // Plus d'infos sur : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date
-    
-    var date = new Date(document.lastModified);
-    date = date.toLocaleString();
-    document.getElementById("lastModif").innerHTML = date;
 
-    
-    /*******************************************************
-    ********************************************************
-    *******************************************************/
-    
-    /*******************************************************
-    ******** Ajoute toutes/certaines annonces de la BDD ****
-    *******************************************************/
     
     
     function connexion(toCheck){
@@ -56,16 +39,18 @@ document.addEventListener('DOMContentLoaded', function () { // après chargement
                 document.getElementById('alertbox').innerHTML = '<div class="alert alert-danger alert-dismissable"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Attention! </strong> Adresse email ou mot de passe incorrect. Veuillez réessayer. </div>';
             }
             else { 
-                new_html= '<form id="login-form" class="navbar-form navbar-right" role="form">';
-                new_html+= '<div class="input-group ">';
+                new_html= '<form id="login-form" class="navbar-form" role="form">';
+                new_html+= '<div class="form-group">';
+                new_html+= '<div class="input-group">';
                 new_html+= '<span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i></span>'
-                new_html+= '<input id="email" type="email" class="form-control" name="email" value="" placeholder="Adresse Email" required>';
+                new_html+= '<input id="email" type="email" class="form-control form-responsive" name="email" value="" placeholder="Adresse Email" required>';
                 new_html+= '</div>';
                 new_html+= '<div class="input-group">';
-                new_html+= '<span class="input-group-addon"> <i class="glyphicon glyphicon-lock"></i></span>';
-                new_html+= '<input id="password" type="password" class="form-control" name="password" value="" placeholder="Mot de passe" required>';
+                new_html+= '<span class="input-group-addon "> <i class="glyphicon glyphicon-lock"></i></span>';
+                new_html+= '<input id="password" type="password" class="form-control form-responsive" name="password" value="" placeholder="Mot de passe" required>';
                 new_html+= '</div>';
                 new_html+= '<button type="submit" class="btn btn-default glyphicon glyphicon-log-in"> </button>';
+                new_html+= '</div>';
                 new_html+= '</form>';
                 
                 document.querySelector('#login').innerHTML = new_html;    
