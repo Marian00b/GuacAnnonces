@@ -12,8 +12,8 @@
         $dbname = "Annonces";
 
         // chaîne de connexion pour PDO (ne pas modifier)
-        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock";
-        //$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
+//        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8;unix_socket=/tmp/mysql.sock"; // POUR MAC 
+        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8";
 
 
         // connexion au serveur de bases de données
@@ -45,6 +45,12 @@
     function creation_table() {
         $maBd = connexionbd();
         $maRequeteCreation = "CREATE TABLE annonces (id int AUTO_INCREMENT PRIMARY KEY, titre varchar(100), description text, categorie varchar(40), nom_vendeur varchar(60), prix int, photo varchar(255), rdv_lat float, rdv_lon float, date_ajout timestamp DEFAULT CURRENT_TIMESTAMP) CHARACTER SET UTF8";
+        requete($maBd, $maRequeteCreation);
+    }
+
+    function creation_table_membre(){
+        $maBd = connexionbd();
+        $maRequeteCreation = "CREATE TABLE Membre (email varchar(50) PRIMARY KEY, nom varchar(50), password varchar(50))CHARACTER SET UTF8";
         requete($maBd, $maRequeteCreation);
     }
 

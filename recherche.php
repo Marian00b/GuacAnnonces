@@ -147,7 +147,7 @@
 <!--                                <div class="form-group"> -->
                                     <div class="input-group">
                                     <span class="input-group-addon transparent"><span class="glyphicon glyphicon-euro"></span></span>
-                                    <input class="form-control input-sm" type="number" name="prix" placeholder="10 €" required/></div>
+                                    <input class="form-control input-sm" type="number" step="any" name="prix" placeholder="10 €" required/></div>
 <!--                                </div>-->
 </br>
 <!--                                <div class="form-group">    -->
@@ -167,14 +167,14 @@
 <!--                                <div class="form-group ">    -->
                                     <div class="input-group">
                                         <span class="input-group-addon transparent"><span class="glyphicon glyphicon-map-marker"></span></span>
-                                        <input class="form-control input-sm" type="number" name="rdv_lat" placeholder="Latitude" />
+                                        <input class="form-control input-sm" type="number" step="any" name="rdv_lat" placeholder="Latitude" />
                                     </div>
 <!--                                </div>-->
 </br>
 <!--                                <div class="form-group">-->
                                     <div class="input-group">
                                         <span class="input-group-addon transparent"><span class="glyphicon glyphicon-map-marker"></span></span>
-                                        <input class="form-control input-sm"  type="number" name="rdv_lon" placeholder="Longitude" />
+                                        <input class="form-control input-sm"  type="number" step="any" name="rdv_lon" placeholder="Longitude" />
                                     </div>
 <!--                                </div>-->
 
